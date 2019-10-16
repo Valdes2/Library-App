@@ -1,14 +1,18 @@
 package mate.academy.spring;
 
+import java.sql.SQLException;
+import java.sql.SQLOutput;
+
+import java.util.List;
+
 import mate.academy.spring.config.AppConfig;
+import mate.academy.spring.entity.Book;
 import mate.academy.spring.entity.User;
+import mate.academy.spring.service.BookService;
 import mate.academy.spring.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.sql.SQLException;
-import java.util.List;
-
-public class MainApp {
+public class MainApp { @SuppressWarnings("checkstyle:VariableDeclarationUsageDistance")
     public static void main(String[] args) throws SQLException {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(AppConfig.class);
@@ -28,6 +32,22 @@ public class MainApp {
             System.out.println("First Name = " + user.getFirstName());
             System.out.println("Last Name = " + user.getLastName());
             System.out.println("Email = " + user.getEmail());
+            System.out.println();
+        }
+
+        BookService bookService = context.getBean(BookService.class);
+
+        bookService.addBook(new Book("qqq", "1998", 30));
+        bookService.addBook(new Book("qwe", "1967", 50));
+        bookService.addBook(new Book("dfrr", "1954", 49));
+        bookService.addBook(new Book("cvgg", "1956", 28));
+
+        List<Book> books = bookService.listBooks();
+        for (Book book: books) {
+            System.out.println("Id = " + book.getId());
+            System.out.println("Name = " + book.getName());
+            System.out.println("Year = " + book.getYear());
+            System.out.println("Price = " + book.getPrice());
             System.out.println();
         }
 
