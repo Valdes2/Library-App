@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class BookServiceImp implements BookService {
+public class BookServiceImpl implements BookService {
 
     @Autowired
     private BookDao bookDao;
