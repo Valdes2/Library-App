@@ -4,7 +4,6 @@ import java.util.List;
 
 import mate.academy.spring.dao.BookDao;
 import mate.academy.spring.entity.Book;
-import mate.academy.spring.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,7 +1,6 @@
 package mate.academy.spring;
 
 import java.sql.SQLException;
-import java.sql.SQLOutput;
 
 import java.util.List;
 
@@ -12,7 +11,7 @@ import mate.academy.spring.service.BookService;
 import mate.academy.spring.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class MainApp { @SuppressWarnings("checkstyle:VariableDeclarationUsageDistance")
+public class MainApp {
     public static void main(String[] args) throws SQLException {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(AppConfig.class);
