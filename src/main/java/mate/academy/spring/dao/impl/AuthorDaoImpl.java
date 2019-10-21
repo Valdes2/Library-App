@@ -24,7 +24,7 @@ public class AuthorDaoImpl implements AuthorDao {
     @Override
     public List<Author> findByName(String name) {
         TypedQuery<Author> query = sessionFactory
-                .getCurrentSession().createQuery("FROM Author WHERE name=:name");
+                .getCurrentSession().createQuery("FROM Author WHERE name LIKE :name");
         query.setParameter("name", name);
         return query.getResultList();
     }
