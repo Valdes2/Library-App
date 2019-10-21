@@ -26,11 +26,6 @@ public class Author {
     private String name;
     @Column(name = "surname")
     private String surname;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "authors_books",
-            joinColumns = @JoinColumn(name = "author_id", referencedColumnName = "author_id"),
-            inverseJoinColumns = @JoinColumn(name = "book_id", referencedColumnName = "book_id"))
-    private List<Book> books = new ArrayList<>();
 
     public Author() {
 
@@ -65,11 +60,4 @@ public class Author {
         this.surname = surname;
     }
 
-    public List<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
 }
