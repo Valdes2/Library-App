@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 public class AuthorDaoImpl implements AuthorDao {
 
     @Autowired
-    SessionFactory sessionFactory;
+     private SessionFactory sessionFactory;
 
     @Override
     public void addAuthor(Author author) {
@@ -33,7 +33,7 @@ public class AuthorDaoImpl implements AuthorDao {
     public List<Author> findByNameAndSurname(String name, String surname) {
         TypedQuery<Author> query = sessionFactory
                 .getCurrentSession()
-                .createQuery("FROM Author WHERE name=:name AND surname=:surname");
+                .createQuery("FROM Author WHERE name LIKE :name AND surname LIKE :surname");
         query.setParameter("name", name);
         query.setParameter("surname", surname);
         return query.getResultList();
