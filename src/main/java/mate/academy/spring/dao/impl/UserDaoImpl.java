@@ -1,9 +1,10 @@
-package mate.academy.spring.dao;
+package mate.academy.spring.dao.impl;
 
 import java.util.List;
 
 import javax.persistence.TypedQuery;
 
+import mate.academy.spring.dao.UserDao;
 import mate.academy.spring.entity.User;
 
 import org.hibernate.SessionFactory;
