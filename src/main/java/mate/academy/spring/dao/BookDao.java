@@ -9,6 +9,8 @@ public interface BookDao {
 
     void addBook(Book book);
 
+    Book find(Long id);
+
     List<Book> findByTitle(String title);
 
     List<Book> findByAuthor(Author author);
