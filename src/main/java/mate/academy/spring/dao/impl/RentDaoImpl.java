@@ -27,12 +27,11 @@ public class RentDaoImpl implements RentDao {
     @Override
     public void returnBook(User user, Book book) {
         TypedQuery<Rent> query = sessionFactory
-                .getCurrentSession().createQuery("FROM Rent WHERE user=:user AND book=:book");
+                .getCurrentSession()
+                .createQuery("UPDATE Rent SET active = false WHERE user = :user AND book = :book");
         query.setParameter("user", user);
         query.setParameter("book", book);
-        Rent rent = query.getSingleResult();
-        rent.setActive(false);
-        sessionFactory.getCurrentSession().update(rent);
+        query.executeUpdate();
     }
 
     @Override
