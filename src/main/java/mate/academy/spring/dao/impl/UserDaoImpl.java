@@ -23,6 +23,11 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public User getUser(Long id) {
+        return sessionFactory.getCurrentSession().get(User.class, id);
+    }
+
+    @Override
     public List<User> listUsers() {
         @SuppressWarnings("unchecked")
         TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User");
