@@ -5,7 +5,6 @@
 <head>
   <title>Internetshop_v3</title>
   <style><%@include file="/WEB-INF/styles/w3.css"%></style>
-
 </head>
 <body class="w3-text-light-gray">
 <div class="w3-container w3-teal">
@@ -13,18 +12,15 @@
     <th class="w3-left-align w3-cell-middle"><h1>Index</h1></th>
     <th class="w3-right-align">
       <form class="w3-margin-top" action="${pageContext.request.contextPath}/logout">
-        <input class="w3-btn w3-dark-gray" type="submit" value="****" />
+        <input class="w3-btn w3-dark-gray" type="submit" value="TODO:logout" />
       </form>
     </th>
   </table>
 </div>
-<div class="w3-container w3-centered">
-
-    <form action="${pageContext.request.contextPath}/book/all">
-      <input class="w3-button w3-block w3-dark-gray" style="width:30%" type="submit" value="All books" />
-    </form>
+  <div class="w3-bar w3-light-gray">
+    <a href="${pageContext.request.contextPath}/book/all" class="w3-bar-item w3-button ">All books</a>
+    <a href="${pageContext.request.contextPath}/book/addBook" class="w3-bar-item w3-button ">Add book</a>
+    <a href="${pageContext.request.contextPath}/rent/rentedBooks" class="w3-bar-item w3-button ">Rented books</a>
   </div>
-</div>
-
 </body>
 </html>

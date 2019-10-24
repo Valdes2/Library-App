@@ -9,17 +9,15 @@
 <body>
     <div class="w3-container w3-teal" >
         <table class="w3-table w3-text-light-gray">
-            <th class="w3-left-align w3-cell-middle"><h1>Books</h1></th>
+            <th class="w3-left-align w3-cell-middle"><h1>Add book</h1></th>
             <th class="w3-right-align">
                 <form class="w3-margin-top" action="${pageContext.request.contextPath}/book/all">
                     <input class="w3-btn w3-dark-gray" type="submit" value="all" />
                 </form>
             </th>
         </table>
-        <form class="w3-margin-top" action="${pageContext.request.contextPath}/book/all">
-            <input class="w3-btn w3-dark-gray" type="submit" value="All books" />
-        </form>
     </div>
+    <jsp:include page="../header.jsp" />
     <div class="w3-container">
         <form class="w3-container" action="${pageContext.request.contextPath}/book/addBook" method="post">
             <label class="w3-text-teal">Book title

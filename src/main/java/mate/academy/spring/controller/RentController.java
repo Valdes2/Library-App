@@ -1,6 +1,5 @@
 package mate.academy.spring.controller;
 
-import mate.academy.spring.entity.Book;
 import mate.academy.spring.entity.User;
 import mate.academy.spring.service.BookService;
 import mate.academy.spring.service.RentService;
