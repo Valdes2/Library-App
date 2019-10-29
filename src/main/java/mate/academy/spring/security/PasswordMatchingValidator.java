@@ -1,10 +1,10 @@
 package mate.academy.spring.security;
 
-import mate.academy.spring.annotation.PasswordMatching;
-import mate.academy.spring.dto.UserDto;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+
+import mate.academy.spring.annotation.PasswordMatching;
+import mate.academy.spring.dto.UserDto;
 
 public class PasswordMatchingValidator implements ConstraintValidator<PasswordMatching, Object> {
     @Override

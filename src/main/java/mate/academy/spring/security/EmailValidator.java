@@ -1,11 +1,12 @@
 package mate.academy.spring.security;
 
-import mate.academy.spring.annotation.ValidEmail;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
+import mate.academy.spring.annotation.ValidEmail;
 
 public class EmailValidator implements ConstraintValidator<ValidEmail, String> {
 
