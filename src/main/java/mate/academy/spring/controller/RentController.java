@@ -26,13 +26,13 @@ public class RentController {
     @GetMapping("/rentBook")
     public String rentBook(@RequestParam("book_id") Long bookId) {
         rentService.rentBook(userService.getUser(USER_ID), bookService.find(bookId));
-        return "forward:/book/all";
+        return "forward:/rent/rentedBooks";
     }
 
     @GetMapping("/returnBook")
     public String returnBook(@RequestParam("book_id") Long bookId) {
         rentService.returnBook(userService.getUser(USER_ID), bookService.find(bookId));
-        return "forward:/book/all";
+        return "forward:/rent/rentedBooks";
     }
 
     @GetMapping("/rentedBooks")

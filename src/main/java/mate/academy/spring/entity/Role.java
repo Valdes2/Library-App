@@ -5,30 +5,27 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.util.Set;
 
 @Entity
-@Table(name = "author")
-public class Author {
+@Table(name = "roles")
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "author_id")
+    @Column(name = "role_id")
     private Long id;
 
     @Column(name = "name")
     private String name;
 
-    @Column(name = "surname")
-    private String surname;
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users;
 
-    public Author() {
+    public Role() {
 
-    }
-
-    public Author(String name, String surname) {
-        this.name = name;
-        this.surname = surname;
     }
 
     public Long getId() {
@@ -47,19 +44,19 @@ public class Author {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
+    public Set<User> getUsers() {
+        return users;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
     @Override
     public String toString() {
-        return "Author{"
-                + "id=" + id + ", name='"
-                + name + '\'' + ", surname='"
-                + surname + '\'' + '}';
+        return "Role{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", users=" + users + '}';
     }
 }

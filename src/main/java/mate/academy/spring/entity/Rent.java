@@ -15,18 +15,23 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "rent")
 public class Rent {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "rent_id")
     private Long id;
+
     @Column(name = "rent_date")
     private LocalDate rentDate;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private User user;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id", referencedColumnName = "book_id")
     private Book book;
+
     @Column(name = "active")
     private boolean active;
 

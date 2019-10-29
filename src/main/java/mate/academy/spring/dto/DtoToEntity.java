@@ -1,0 +1,18 @@
+package mate.academy.spring.dto;
+
+import mate.academy.spring.entity.User;
+import org.springframework.stereotype.Component;
+
+@Component
+public class DtoToEntity {
+
+    public User toEntity(UserDto userDto) {
+        User newUser = new User();
+        newUser.setFirstName(userDto.getFirstName());
+        newUser.setLastName(userDto.getLastName());
+        newUser.setEmail(userDto.getEmail());
+        newUser.setLogin(userDto.getLogin());
+        newUser.setPassword(userDto.getPassword());
+        return newUser;
+    }
+}

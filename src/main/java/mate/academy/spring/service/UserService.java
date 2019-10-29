@@ -10,5 +10,7 @@ public interface UserService {
 
     User getUser(Long id);
 
+    User findByLogin(String login);
+
     List<User> listUsers();
 }
