@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/rent")
 public class RentController {
-    //private static final Long USER_ID = 1L;
 
     @Autowired
     private RentService rentService;
