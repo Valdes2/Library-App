@@ -31,7 +31,11 @@ public class UserServiceImpl implements UserService {
     public void add(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         Set<Role> roles = new HashSet<>();
-        roles.add(roleDao.getRoleByName("USER"));
+        if (user.getLogin().equals("root")) {
+            roles.add(roleDao.getRoleByName("ROLE_ADMIN"));
+        } else {
+            roles.add(roleDao.getRoleByName("ROLE_USER"));
+        }
         user.setRoles(roles);
         userDao.add(user);
     }

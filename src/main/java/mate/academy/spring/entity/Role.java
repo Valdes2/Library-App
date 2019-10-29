@@ -1,13 +1,10 @@
 package mate.academy.spring.entity;
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,11 +19,12 @@ public class Role {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
-
     public Role() {
 
+    }
+
+    public Role(String roleName) {
+        this.name = roleName;
     }
 
     public Long getId() {
@@ -45,19 +43,4 @@ public class Role {
         this.name = name;
     }
 
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
-
-    @Override
-    public String toString() {
-        return "Role{"
-                + "id=" + id
-                + ", name='" + name + '\''
-                + ", users=" + users + '}';
-    }
 }

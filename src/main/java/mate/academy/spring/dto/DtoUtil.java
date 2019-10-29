@@ -4,7 +4,7 @@ import mate.academy.spring.entity.User;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DtoToEntity {
+public class DtoUtil {
 
     public User toEntity(UserDto userDto) {
         User newUser = new User();

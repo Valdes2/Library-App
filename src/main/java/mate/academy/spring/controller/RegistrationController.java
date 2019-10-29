@@ -2,7 +2,7 @@ package mate.academy.spring.controller;
 
 import javax.validation.Valid;
 
-import mate.academy.spring.dto.DtoToEntity;
+import mate.academy.spring.dto.DtoUtil;
 import mate.academy.spring.dto.UserDto;
 import mate.academy.spring.entity.User;
 import mate.academy.spring.service.UserService;
@@ -22,7 +22,7 @@ public class RegistrationController {
     private UserService userService;
 
     @Autowired
-    DtoToEntity dtoToEntity;
+    private DtoUtil dtoUtil;
 
     @GetMapping
     public String getRegisterPage() {
@@ -32,7 +32,7 @@ public class RegistrationController {
     @PostMapping("/registration")
     public String createUser(@ModelAttribute @Valid UserDto userDto, Model model) {
         model.addAttribute("userDto", userDto);
-        User user = dtoToEntity.toEntity(userDto);
+        User user = dtoUtil.toEntity(userDto);
         userService.add(user);
         return "login";
     }
