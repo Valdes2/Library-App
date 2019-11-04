@@ -18,16 +18,21 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "book")
 public class Book {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id")
     private Long id;
+
     @Column(name = "name")
     private String title;
+
     @Column(name = "year")
     private Integer year;
+
     @Column(name = "price")
     private Integer price;
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "authors_books",
             joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "book_id"),

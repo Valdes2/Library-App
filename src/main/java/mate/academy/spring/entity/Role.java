@@ -8,27 +8,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "author")
-public class Author {
+@Table(name = "roles")
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "author_id")
+    @Column(name = "role_id")
     private Long id;
 
     @Column(name = "name")
     private String name;
 
-    @Column(name = "surname")
-    private String surname;
-
-    public Author() {
+    public Role() {
 
     }
 
-    public Author(String name, String surname) {
-        this.name = name;
-        this.surname = surname;
+    public Role(String roleName) {
+        this.name = roleName;
     }
 
     public Long getId() {
@@ -47,19 +43,4 @@ public class Author {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    @Override
-    public String toString() {
-        return "Author{"
-                + "id=" + id + ", name='"
-                + name + '\'' + ", surname='"
-                + surname + '\'' + '}';
-    }
 }

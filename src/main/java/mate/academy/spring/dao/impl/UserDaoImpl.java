@@ -33,4 +33,12 @@ public class UserDaoImpl implements UserDao {
         TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User");
         return query.getResultList();
     }
+
+    @Override
+    public User findByLogin(String login) {
+        TypedQuery<User> query = sessionFactory
+                .getCurrentSession().createQuery("from User where login=:login");
+        query.setParameter("login", login);
+        return query.getSingleResult();
+    }
 }
