@@ -17,6 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class UserServiceImpl implements UserService {
 
+    private static final String ROLE_NAME = "ROLE_USER";
+
     @Autowired
     private UserDao userDao;
 
@@ -31,7 +33,7 @@ public class UserServiceImpl implements UserService {
     public void add(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         Set<Role> roles = new HashSet<>();
-        roles.add(roleDao.getRoleByName("ROLE_USER"));
+        roles.add(roleDao.getRoleByName(ROLE_NAME));
         user.setRoles(roles);
         userDao.add(user);
     }

@@ -21,7 +21,7 @@ public class RentServiceImpl implements RentService {
     @Transactional
     @Override
     public Rent rentBook(User user, Book book) {
-        Rent newRent = new Rent(LocalDate.now(),user, book);
+        Rent newRent = new Rent(LocalDate.now(), user, book);
         rentDao.addRent(newRent);
         return newRent;
     }

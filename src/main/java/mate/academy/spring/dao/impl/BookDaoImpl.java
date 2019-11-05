@@ -31,7 +31,7 @@ public class BookDaoImpl implements BookDao {
     @Override
     public List<Book> findByTitle(String title) {
         TypedQuery<Book> query = sessionFactory
-                .getCurrentSession().createQuery("from Book where title LIKE :title");
+                .getCurrentSession().createQuery("FROM Book WHERE title LIKE :title");
         query.setParameter("title", title);
         return query.getResultList();
     }
@@ -39,14 +39,14 @@ public class BookDaoImpl implements BookDao {
     @Override
     public List<Book> findByAuthor(Author author) {
         TypedQuery<Book> query = sessionFactory
-                .getCurrentSession().createQuery("from Book where author=:author");
+                .getCurrentSession().createQuery("FROM Book WHERE author=:author");
         query.setParameter("author", author);
         return query.getResultList();
     }
 
     @Override
     public List<Book> listBooks() {
-        TypedQuery<Book> query = sessionFactory.getCurrentSession().createQuery("from Book");
+        TypedQuery<Book> query = sessionFactory.getCurrentSession().createQuery("FROM Book");
         return query.getResultList();
     }
 }

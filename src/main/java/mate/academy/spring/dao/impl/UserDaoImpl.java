@@ -29,15 +29,14 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> listUsers() {
-        @SuppressWarnings("unchecked")
-        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User");
+        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("FROM User");
         return query.getResultList();
     }
 
     @Override
     public User findByLogin(String login) {
         TypedQuery<User> query = sessionFactory
-                .getCurrentSession().createQuery("from User where login=:login");
+                .getCurrentSession().createQuery("FROM User WHERE login=:login");
         query.setParameter("login", login);
         return query.getSingleResult();
     }
